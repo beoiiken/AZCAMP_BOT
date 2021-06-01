@@ -121,7 +121,7 @@ def check_phone_def(message):
 
 
 
-@bot.callback_query_handler(func=lambda call:True)
+@bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
     global sat
     global sport
@@ -205,6 +205,19 @@ def callback_inline(call):
 
                 bot.send_message(610940864,"\nName - "+name+"\nSurname - "+surname+ "\nPhone -"+phone+"\nSat - "+str(sat)+"\nSport - "+str(sport)+"\nTime- "+str(time)+"\nStyle - "+str(style))
                 db.add_sub(call.message.from_user.id, name, surname, phone, sat, sport, time, style)
+                sat=False
+                sport=False
+                time=False
+                style=False
+
+                ssat = "*\n"
+                ssport = "*\n"
+                stime = "*\n"
+                sstyle = "*\n"
+
+
+
+
     except Exception as e:
         print(repr(e))
 
